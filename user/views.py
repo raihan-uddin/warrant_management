@@ -6,3 +6,7 @@ from django.views.generic import TemplateView
 
 class SampleTemplateView(TemplateView):
     template_name = 'user_list.html'
+
+
+class DashboardTemplate(TemplateView):
+    template_name = 'dashboard.html'
