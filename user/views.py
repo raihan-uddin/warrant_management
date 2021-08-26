@@ -10,3 +10,6 @@ class SampleTemplateView(TemplateView):
 
 class DashboardTemplate(TemplateView):
     template_name = 'dashboard.html'
+
+class UnionTemplate(TemplateView):
+    template_name = 'union.html'

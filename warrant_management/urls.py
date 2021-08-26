@@ -14,12 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
 
-from user.views import SampleTemplateView, DashboardTemplate
+from user.views import SampleTemplateView, DashboardTemplate, UnionTemplate
 
 urlpatterns = [
     # path('hello/', SampleTemplateView.as_view()),
-    # path('dashboard/', DashboardTemplate.as_view(), name='dashboard'),
+    path('dashboard/', DashboardTemplate.as_view(), name='dashboard'),
     path('admin/', admin.site.urls),
+
+    # config url
+    path('config/', include('geo_spatial.urls')),
 ]

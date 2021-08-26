@@ -19,10 +19,11 @@ class Thana(models.Model):
     code = models.CharField(max_length=255)
     status = models.BooleanField(default=True)
 
-
+    def __str__(self):
+        return self.name
 class Union(models.Model):
-    name = models.CharField(max_length=255)
     thana = models.ForeignKey(Thana, on_delete=models.CASCADE, related_name='unions')
+    name = models.CharField(max_length=255)
     name_bn = models.CharField(max_length=255)
     code = models.CharField(max_length=255)
     status = models.BooleanField(default=True)
