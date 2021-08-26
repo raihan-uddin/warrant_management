@@ -19,7 +19,7 @@ from django.urls import path
 from user.views import SampleTemplateView, DashboardTemplate
 
 urlpatterns = [
-    path('hello/', SampleTemplateView.as_view()),
-    path('dashboard/', DashboardTemplate.as_view(), name='dashboard'),
+    # path('hello/', SampleTemplateView.as_view()),
+    # path('dashboard/', DashboardTemplate.as_view(), name='dashboard'),
     path('admin/', admin.site.urls),
 ]
