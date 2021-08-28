@@ -18,7 +18,7 @@ class Warrant(models.Model):
     address = models.TextField(null=True)
     gr_cr_no = models.IntegerField()
     gr_cr_year = models.IntegerField(null=True)
-    case_file_station = models.ForeignKey(Thana, on_delete=models.RESTRICT, related_name='warrants')
+    case_file_station = models.ForeignKey(Thana, on_delete=models.RESTRICT, related_name='warrants_station')
     concerned_police_unit = models.ForeignKey(PoliceUnit, on_delete=models.RESTRICT, related_name='warrants')
     case_type_section = models.CharField(max_length=255)
     date_of_presentation_in_court = models.DateField(null=True)
