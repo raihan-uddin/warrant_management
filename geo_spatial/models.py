@@ -19,11 +19,12 @@ class Thana(models.Model):
     code = models.CharField(max_length=255, null=True)
     status = models.BooleanField(default=True)
 
-
+    def __str__(self):
+        return self.name
 class Union(models.Model):
     name = models.CharField(max_length=255)
-    thana = models.ForeignKey(Thana, on_delete=models.RESTRICT, related_name='unions')
     name_bn = models.CharField(max_length=255)
+    thana = models.ForeignKey(Thana, on_delete=models.RESTRICT, related_name='unions')
     code = models.CharField(max_length=255, null=True)
     status = models.BooleanField(default=True)
 

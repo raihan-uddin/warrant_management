@@ -2,7 +2,7 @@
     #Menu Design: Raihan - Done on 25/08/2021
     #District Create: Abdul Quader
     #Thana Create: Fahim
-    #Union Create: Arafat
+    #Union Create: Arafat - Done on 26/08/2021
     #Police Unit: Kamrul
     #Warrant: Raihan
     #Step Taken By Officer: Quader
