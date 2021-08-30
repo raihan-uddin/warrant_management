@@ -20,6 +20,7 @@ from user.views import SampleTemplateView, DashboardTemplate, UnionTemplate
 
 urlpatterns = [
     # path('hello/', SampleTemplateView.as_view()),
+    path('', DashboardTemplate.as_view(), name='dashboard'),
     path('dashboard/', DashboardTemplate.as_view(), name='dashboard'),
     path('hello/', SampleTemplateView.as_view()),
     path('admin/', admin.site.urls),
