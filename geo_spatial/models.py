@@ -30,6 +30,9 @@ class Union(models.Model):
     code = models.CharField(max_length=255, null=True)
     status = models.BooleanField(default=True)
 
+    def __str__(self):
+        return self.name
+
 
 class PoliceUnit(models.Model):
     name = models.CharField(max_length=255)
@@ -39,3 +42,5 @@ class PoliceUnit(models.Model):
     email = models.CharField(max_length=255, null=True)
     remarks = models.TextField(max_length=255, null=True)
     status = models.BooleanField(default=True)
+    def __str__(self):
+        return self.name

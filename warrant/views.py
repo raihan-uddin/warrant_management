@@ -12,6 +12,7 @@ def warrant_list(request):
 
 
 def warrant_form(request, id=0):
+    print('ex')
     if request.method == 'GET':
         if id == 0:
             form = WarrantForm()
