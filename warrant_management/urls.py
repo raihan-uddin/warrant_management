@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 
 from user.views import SampleTemplateView, DashboardTemplate, UnionTemplate
 
@@ -26,4 +26,7 @@ urlpatterns = [
 
     # config url
     path('config/', include('geo_spatial.urls')),
+
+    # warrant url
+    path('warrant/', include('warrant.urls')),
 ]

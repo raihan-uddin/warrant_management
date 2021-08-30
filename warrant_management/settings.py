@@ -37,9 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'warrant',
-    'geo_spatial',
     'user',
+    'geo_spatial',
+    'warrant',
     'crispy_forms',
 ]
 
