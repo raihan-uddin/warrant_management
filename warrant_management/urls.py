@@ -30,4 +30,7 @@ urlpatterns = [
 
     # warrant url
     path('warrant/', include('warrant.urls')),
+
+    # user url
+    path('user/', include('user.urls')),
 ]
