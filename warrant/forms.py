@@ -9,9 +9,9 @@ class WarrantForm(forms.ModelForm):
         model = Warrant
         fields = '__all__'
         labels = {
-            # 'name_bn': 'Name Bangla'
+            'gr_cr_no': 'GR CR No',
+            'gr_cr_year': 'GR CR Year'
         }
 
     def __ini__(self, *args, **kwargs):
         super(WarrantForm, self).__init__(*args, **kwargs)
-        self.fields['thana'].empty_label = "Select"

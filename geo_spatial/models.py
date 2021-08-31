@@ -6,7 +6,11 @@ class District(models.Model):
     name = models.CharField(max_length=255)
     name_bn = models.CharField(max_length=255)
     code = models.CharField(max_length=255, null=True)
-    status = models.BooleanField(default=True)
+    STATUS_VALUES = (
+        (True, 'Active'),
+        (False, 'Inactive'),
+    )
+    status = models.BooleanField(default=True, choices=STATUS_VALUES)
 
     def __str__(self):
         return f"{self.name}"
@@ -17,7 +21,11 @@ class Thana(models.Model):
     district = models.ForeignKey(District, on_delete=models.RESTRICT, related_name='thanas')
     name_bn = models.CharField(max_length=255)
     code = models.CharField(max_length=255, null=True)
-    status = models.BooleanField(default=True)
+    STATUS_VALUES = (
+        (True, 'Active'),
+        (False, 'Inactive'),
+    )
+    status = models.BooleanField(default=True, choices=STATUS_VALUES)
 
     def __str__(self):
         return self.name
@@ -28,7 +36,11 @@ class Union(models.Model):
     name_bn = models.CharField(max_length=255)
     thana = models.ForeignKey(Thana, on_delete=models.RESTRICT, related_name='unions')
     code = models.CharField(max_length=255, null=True)
-    status = models.BooleanField(default=True)
+    STATUS_VALUES = (
+        (True, 'Active'),
+        (False, 'Inactive'),
+    )
+    status = models.BooleanField(default=True, choices=STATUS_VALUES)
 
     def __str__(self):
         return self.name
@@ -41,7 +53,11 @@ class PoliceUnit(models.Model):
     contact_no = models.CharField(max_length=255, null=True)
     email = models.CharField(max_length=255, null=True)
     remarks = models.TextField(max_length=255, null=True)
-    status = models.BooleanField(default=True)
+    STATUS_VALUES = (
+        (True, 'Active'),
+        (False, 'Inactive'),
+    )
+    status = models.BooleanField(default=True, choices=STATUS_VALUES)
 
     def __str__(self):
         return self.name
