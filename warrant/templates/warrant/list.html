@@ -15,32 +15,42 @@
             <table class="table table-hover" border="1">
                 <thead class="border-bottom font-wight-bold">
                 <tr>
+                    <th>SL</th>
+                    <th>Entry Date</th>
+                    <th>Issue Date</th>
+                    <th>Warrant Type</th>
+                    <th>Warrant Person Name</th>
+                    <th>District</th>
                     <th>Thana</th>
-                    <th>Union Name</th>
-                    <th>Union Name Bangla</th>
-                    <th>Union Code</th>
+                    <th>GR CR No</th>
+                    <th>Case File Station</th>
                     <th>Status</th>
-                    <th>Action</th>
+                    <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for union in warrant_list %}
+                {% for warrant in warrants %}
                     <tr>
-                        <td>{{ union.thana }}</td>
-                        <td>{{ union.name }}</td>
-                        <td>{{ union.name_bn }}</td>
-                        <td>{{ union.code }}</td>
-                        <td>{{ union.status }}</td>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ warrant.entry_date }}</td>
+                        <td>{{ warrant.issue_date }}</td>
+                        <td>{{ warrant.get_warrant_type_display }}</td>
+                        <td>{{ warrant.warrant_person_name_age }}</td>
+                        <td>{{ warrant.district }}</td>
+                        <td>{{ warrant.gr_cr_no }}</td>
+                        <td>{{ warrant.thana }}</td>
+                        <td>{{ warrant.case_file_station }}</td>
+                        <td>{{ warrant.get_approve_status_display }}</td>
                         <td>
-                            <a href="{% url 'warrant_update' union.id %}" class="btn text-secondary px-0">
+                            <a href="{% url 'warrant_update' warrant.id %}" class="btn text-secondary px-0">
                                 <i class="far fa-edit fa-lg"></i>
                             </a>
-                            <form action="{% url 'warrant_delete' union.id %}" method="post" class="d-inline">
+                            {% comment %}<form action="{% url 'warrant_delete' warrant.id %}" method="post" class="d-inline">
                                 {% csrf_token %}
                                 <button type="submit" class="btn">
                                     <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
                                 </button>
-                            </form>
+                            </form>{% endcomment %}
                         </td>
                     </tr>
                 {% endfor %}

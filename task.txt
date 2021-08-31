@@ -7,5 +7,5 @@
     #Warrant: Raihan
     #Step Taken By Officer: Quader
     #Warrant Settlement: Fahim
-2. Complete Model Design
-3. Layout Mastering
+2. Complete Model Design  - Done on 25/08/2021
+3. Layout Mastering  - Done on 25/08/2021

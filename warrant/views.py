@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.views.generic import TemplateView, UpdateView
 
-from warrant.forms import WarrantForm
+from warrant.forms import WarrantCreateForm
 from warrant.models import Warrant
 
 
@@ -11,29 +12,46 @@ def warrant_list(request):
     return render(request, "warrant/list.html", data)
 
 
-def warrant_form(request, id=0):
-    print('ex')
-    if request.method == 'GET':
-        if id == 0:
-            form = WarrantForm()
+class WarrantListTemplate(TemplateView):
+    template_name = 'warrant/list.html'
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['warrants'] = Warrant.objects.all()
+        return data
+
+
+class WarrantCreateTemplate(TemplateView):
+    template_name = 'warrant/create.html'
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['form'] = WarrantCreateForm(self.request.POST or None)  # instance= None
+        return data
+
+    def post(self, request, *args, **kwargs):
+        print("POST DATA")
+        form_warrant = WarrantCreateForm(data=request.POST)
+
+        print(form_warrant.data)
+        if form_warrant.is_valid():
+            Warrant.objects.create(**form_warrant.cleaned_data)
+            return self.render_to_response(
+                context={'status': 'success', 'status_code': 200, 'message': 'Warrant created successfully!',
+                         'form': WarrantCreateForm(), 'errors': None})
         else:
-            warrant = Warrant.objects.get(pk=id)
-            form = WarrantForm(instance=warrant)
-
-        return render(request, "warrant/create.html", {'form': form, 'id': id})
-    else:
-        if id == 0:
-            form = WarrantForm(request.POST)
-        else:
-            union = Warrant.objects.get(pk=id)
-            form = WarrantForm(request.POST, instance=union)
-        if form.is_valid():
-            form.save()
-        return redirect('/warrant/warrant/list')
+            print("NOT SAVED")
+            return self.render_to_response(
+                context={'status': 'error', 'status_code': 500, 'message': 'Please try again!', 'form': form_warrant,
+                         'errors': form_warrant.errors})
 
 
-def warrant_delete(request, id):
-    warrant = Warrant.objects.get(pk=id)
-    warrant.delete()
-    return redirect('/warrant/warrant/list')
-# warrant views end
+class WarrantUpdateTemplate(UpdateView):
+    model = Warrant
+    fields = ('entry_date', 'issue_date', 'warrant_type', 'court_name', 'warrant_person_name_age',
+              'warrant_person_father_name', 'district', 'thana', 'union', 'address', 'gr_cr_no', 'gr_cr_year',
+              'case_file_station', 'concerned_police_unit', 'case_type_section', 'date_of_presentation_in_court',
+              'court_process_no', 'court_given_other_info')
+    template_name = 'warrant/update.html'
+    context_object_name = 'warrant'
+    success_url = '/warrant/list'

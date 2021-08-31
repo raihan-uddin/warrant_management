@@ -1,12 +1,15 @@
 from user.views import UnionTemplate
 from django.urls import path
 from . import views
+from .views import WarrantCreateTemplate, WarrantListTemplate
 
 urlpatterns = [
     # warrant urls start
-    path('', views.warrant_form, name='warrant_create'),
-    path('<int:id>/', views.warrant_form, name='warrant_update'),
-    path('delete/<int:id>/', views.warrant_delete, name='warrant_delete'),
-    path('list/', views.warrant_list, name='warrant_list'),
+    # path('', views.warrant_form, name='warrant_create'),
+    # path('delete/<int:id>/', views.warrant_delete, name='warrant_delete'),
     # warrant urls end
+
+    path('create', WarrantCreateTemplate.as_view(), name='warrant_create'),
+    path('list/', WarrantListTemplate.as_view(), name='warrant_list'),
+    path('<int:id>/', views.WarrantUpdateTemplate, name='warrant_update'),
 ]
