@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <ol class="breadcrumb mb-4">
+        <h3 class="mt-2">Police Unit List</h3>
+    </ol>
+    <fieldset>
+        <div class="col-lg-12">
+
+            <a href="{% url 'police_unit_create' %}" class="btn btn-outline-success float-right"><i class="fas fa-plus"></i>
+                Add
+                Police Unit</a>
+            <br>
+            <table class="table table-hover" border="1">
+                <thead class="border-bottom font-wight-bold">
+                <tr>
+                    <th>SL</th>
+                    <th>Name</th>
+                    <th>Name Bangla</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for unit in police_units %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ unit.name }}</td>
+                        <td>{{ unit.name_bn }}</td>
+                        <td>{{ unit.get_status_display }}</td>
+                        <td>
+                            <a href="#" class="btn text-secondary px-0">
+                                <i class="far fa-edit fa-lg"></i>
+                            </a>
+                            <form action="#" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn">
+                                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+
+{% endblock %}

@@ -49,10 +49,10 @@ class Union(models.Model):
 class PoliceUnit(models.Model):
     name = models.CharField(max_length=255)
     name_bn = models.CharField(max_length=255)
-    contact_person = models.CharField(max_length=255, null=True)
-    contact_no = models.CharField(max_length=255, null=True)
-    email = models.CharField(max_length=255, null=True)
-    remarks = models.TextField(max_length=255, null=True)
+    contact_person = models.CharField(max_length=255, null=True, blank=True)
+    contact_no = models.CharField(max_length=255, null=True, blank=True)
+    email = models.CharField(max_length=255, null=True, blank=True)
+    remarks = models.TextField(max_length=255, null=True, blank=True)
     STATUS_VALUES = (
         (True, 'Active'),
         (False, 'Inactive'),

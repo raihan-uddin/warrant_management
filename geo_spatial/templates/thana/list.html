@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <ol class="breadcrumb mb-4">
+        <h3 class="mt-2">Thana List</h3>
+    </ol>
+    <fieldset>
+        <div class="col-lg-12">
+
+            <a href="{% url 'thana_create' %}" class="btn btn-outline-success float-right"><i class="fas fa-plus"></i>
+                Add
+                Thana</a>
+            <br>
+            <table class="table table-hover" border="1">
+                <thead class="border-bottom font-wight-bold">
+                <tr>
+                    <th>SL</th>
+                    <th>District</th>
+                    <th>Name</th>
+                    <th>Name Bangla</th>
+                    <th>Code</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for thana in thanas %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ thana.district }}</td>
+                        <td>{{ thana.name }}</td>
+                        <td>{{ thana.name_bn }}</td>
+                        <td>{{ thana.code }}</td>
+                        <td>{{ thana.get_status_display }}</td>
+                        <td>
+                            <a href="#" class="btn text-secondary px-0">
+                                <i class="far fa-edit fa-lg"></i>
+                            </a>
+                            <form action="#" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn">
+                                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </fieldset>
+
+{% endblock %}

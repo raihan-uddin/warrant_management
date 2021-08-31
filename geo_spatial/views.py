@@ -1,10 +1,10 @@
-from geo_spatial.models import Union, District
-from geo_spatial.forms import UnionForm, DistrictCreateForm
+from geo_spatial.models import Union, District, Thana, PoliceUnit
+from geo_spatial.forms import UnionForm, DistrictCreateForm, ThanaCreateForm, PoliceUnitCreateForm
 from django.shortcuts import redirect, render
 from django.views.generic.base import TemplateView
 
 
-# union views start
+# District views start
 
 class DistrictListTemplate(TemplateView):
     template_name = 'district/list.html'
@@ -29,13 +29,50 @@ class DistrictCreateTemplate(TemplateView):
         if form_district.is_valid():
             District.objects.create(**form_district.cleaned_data)
             return self.render_to_response(
-                context={'status': 'success', 'status_code': 200, 'message': 'Warrant created successfully!',
+                context={'status': 'success', 'status_code': 200, 'message': 'District created successfully!',
                          'form': DistrictCreateForm(), 'errors': None})
         else:
             print("NOT SAVED")
             return self.render_to_response(
                 context={'status': 'error', 'status_code': 500, 'message': 'Please try again!', 'form': form_district,
                          'errors': form_district.errors})
+
+
+# district views end
+
+
+# Thana views start
+
+class ThanaListTemplate(TemplateView):
+    template_name = 'thana/list.html'
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['thanas'] = Thana.objects.all()
+        return data
+
+
+class ThanaCreateTemplate(TemplateView):
+    template_name = 'thana/create.html'
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['form'] = ThanaCreateForm(self.request.POST or None)  # instance= None
+        return data
+
+    def post(self, request, *args, **kwargs):
+        form_thana = ThanaCreateForm(data=request.POST)
+
+        if form_thana.is_valid():
+            Thana.objects.create(**form_thana.cleaned_data)
+            return self.render_to_response(
+                context={'status': 'success', 'status_code': 200, 'message': 'Thana created successfully!',
+                         'form': ThanaCreateForm(), 'errors': None})
+        else:
+            print("NOT SAVED")
+            return self.render_to_response(
+                context={'status': 'error', 'status_code': 500, 'message': 'Please try again!', 'form': form_thana,
+                         'errors': form_thana.errors})
 
 
 # district views end
@@ -71,4 +108,41 @@ def union_delete(request, id):
     union = Union.objects.get(pk=id)
     union.delete()
     return redirect('/config/union/list')
+
+
 # union views end
+
+
+class PoliceUnitListTemplate(TemplateView):
+    template_name = 'police-unit/list.html'
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['police_units'] = PoliceUnit.objects.all()
+        return data
+
+
+class PoliceUnitCreateTemplate(TemplateView):
+    template_name = 'police-unit/create.html'
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['form'] = PoliceUnitCreateForm(self.request.POST or None)  # instance= None
+        return data
+
+    def post(self, request, *args, **kwargs):
+        form_police_unit = PoliceUnitCreateForm(data=request.POST)
+
+        if form_police_unit.is_valid():
+            PoliceUnit.objects.create(**form_police_unit.cleaned_data)
+            return self.render_to_response(
+                context={'status': 'success', 'status_code': 200, 'message': 'Police Unit created successfully!',
+                         'form': PoliceUnitCreateForm(), 'errors': None})
+        else:
+            print("NOT SAVED")
+            return self.render_to_response(
+                context={'status': 'error', 'status_code': 500, 'message': 'Please try again!',
+                         'form': form_police_unit,
+                         'errors': form_police_unit.errors})
+
+# district views end
