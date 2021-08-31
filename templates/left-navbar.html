@@ -23,7 +23,7 @@
                     <nav class="sb-sidenav-menu-nested nav">
                         <a class="nav-link" href="#">District Information</a>
                         <a class="nav-link" href="#">Thana Information</a>
-                        <a class="nav-link" href="/config/union/list">Union Information</a>
+                        <a class="nav-link" href="{% url 'union_list' %}">Union Information</a>
                         <a class="nav-link" href="#">Police Station Information</a>
                     </nav>
                 </div>
@@ -38,8 +38,8 @@
                 <div class="collapse" id="collapseLayoutsWarrant" aria-labelledby="headingOne"
                      data-bs-parent="#sidenavAccordion">
                     <nav class="sb-sidenav-menu-nested nav">
-                        <a class="nav-link" href="/warrant/warrant/create">Warrant Create</a>
-                        <a class="nav-link" href="/warrant/warrant/list">Warrant Manage</a>
+                        <a class="nav-link" href="{% url 'warrant_create' %}">Warrant Create</a>
+                        <a class="nav-link" href="{% url 'warrant_list' %}">Warrant Manage</a>
                         <a class="nav-link" href="#">Postponed Warrant</a>
                         <a class="nav-link" href="#">Disposed Warrant</a>
                         <a class="nav-link" href="#">Thana Postponed Warrant</a>
