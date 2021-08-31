@@ -7,11 +7,6 @@ from warrant.models import Warrant
 
 # Warrant views start
 
-def warrant_list(request):
-    data = {'warrant_list': Warrant.objects.all()}
-    return render(request, "warrant/list.html", data)
-
-
 class WarrantListTemplate(TemplateView):
     template_name = 'warrant/list.html'
 

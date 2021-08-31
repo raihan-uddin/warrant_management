@@ -21,7 +21,6 @@ class WarrantCreateForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['court_given_other_info'].required = False
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
