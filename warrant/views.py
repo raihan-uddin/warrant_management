@@ -25,8 +25,7 @@ class WarrantCreateTemplate(TemplateView):
         return data
 
     def post(self, request, *args, **kwargs):
-        print("POST DATA")
-        form_warrant = WarrantCreateForm(data=request.POST)
+        form_warrant = WarrantCreateForm(data=request.POST, files=request.FILES)
 
         print(form_warrant.data)
         if form_warrant.is_valid():

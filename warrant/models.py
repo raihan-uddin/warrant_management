@@ -49,6 +49,7 @@ class Warrant(models.Model):
         (2, 'Approved'),
     )
     approve_status = models.PositiveSmallIntegerField(default=1, choices=APPROVE_STATUS_CHOICE)
+    picture = models.ImageField(upload_to='warrant/picture/', default=None, null=True)
     created_by = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, related_name='warrants', null=True,
                                    blank=True, default=None)
     created_time = models.DateTimeField(null=True, default=None)
@@ -62,7 +63,4 @@ class WarrantFile(models.Model):
     created_time = models.DateTimeField(null=True, default=None)
     created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='warrant_files')
 
-
-class FileUpload(models.Model):
-    file = models.FileField()
 
