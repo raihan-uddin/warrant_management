@@ -1,7 +1,7 @@
 from user.views import UnionTemplate
 from django.urls import path
 from . import views
-from .views import WarrantCreateTemplate, WarrantListTemplate
+from .views import WarrantCreateTemplate, WarrantListTemplate, WarrantFileUploadTemplate
 
 urlpatterns = [
     # warrant urls start
@@ -11,5 +11,6 @@ urlpatterns = [
 
     path('create', WarrantCreateTemplate.as_view(), name='warrant_create'),
     path('list/', WarrantListTemplate.as_view(), name='warrant_list'),
+    path('file-upload/', WarrantFileUploadTemplate.as_view(), name='file_upload'),
     path('<int:id>/', views.WarrantUpdateTemplate, name='warrant_update'),
 ]

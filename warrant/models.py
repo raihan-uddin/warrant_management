@@ -61,3 +61,8 @@ class WarrantFile(models.Model):
     attachment = models.FileField()
     created_time = models.DateTimeField(null=True, default=None)
     created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='warrant_files')
+
+
+class FileUpload(models.Model):
+    file = models.FileField()
+

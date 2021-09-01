@@ -1,5 +1,5 @@
 from django import forms
-from warrant.models import Warrant
+from warrant.models import Warrant, FileUpload
 
 
 class WarrantCreateForm(forms.ModelForm):
@@ -20,3 +20,9 @@ class WarrantCreateForm(forms.ModelForm):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
             })
+
+
+class WarrantFileUploadFrom(forms.ModelForm):
+    class Meta:
+        model = FileUpload
+        fields = ('file')
