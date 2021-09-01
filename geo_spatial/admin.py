@@ -1,8 +1,9 @@
 from django.contrib import admin
 
 # Register your models here.
-from geo_spatial.models import District, Thana, Union
+from geo_spatial.models import District, Thana, Union, PoliceUnit
 
 admin.site.register(District)
 admin.site.register(Thana)
 admin.site.register(Union)
+admin.site.register(PoliceUnit)
