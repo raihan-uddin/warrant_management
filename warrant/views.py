@@ -50,3 +50,12 @@ class WarrantUpdateTemplate(UpdateView):
     template_name = 'warrant/update.html'
     context_object_name = 'warrant'
     success_url = '/warrant/list'
+
+
+class WarrantFileUploadTemplate(TemplateView):
+    template_name = 'warrant/file_upload.html'
+
+    def get_context_data(self, **kwargs):
+        data = super().get_context_data(**kwargs)
+        data['warrants'] = Warrant.objects.all()
+        return data

@@ -24,7 +24,7 @@ class Warrant(models.Model):
     union = models.ForeignKey(Union, on_delete=models.RESTRICT, related_name='warrants', blank=True)
     address = models.TextField(null=True, blank=True)
     gr_cr_no = models.IntegerField(default=None, )
-    gr_cr_year = models.PositiveSmallIntegerField(null=True, blank=True, max_length=4)
+    gr_cr_year = models.PositiveSmallIntegerField(null=True, blank=True)
     case_file_station = models.ForeignKey(Thana, default=None, on_delete=models.RESTRICT,
                                           related_name='warrants_station')
     concerned_police_unit = models.ForeignKey(PoliceUnit, default=None, on_delete=models.RESTRICT,
@@ -48,7 +48,7 @@ class Warrant(models.Model):
         (1, 'Pending'),
         (2, 'Approved'),
     )
-    approve_status = models.PositiveSmallIntegerField(default=1, max_length=2, choices=APPROVE_STATUS_CHOICE)
+    approve_status = models.PositiveSmallIntegerField(default=1, choices=APPROVE_STATUS_CHOICE)
     created_by = models.ForeignKey(CustomUser, on_delete=models.RESTRICT, related_name='warrants', null=True,
                                    blank=True, default=None)
     created_time = models.DateTimeField(null=True, default=None)
@@ -61,3 +61,8 @@ class WarrantFile(models.Model):
     attachment = models.FileField()
     created_time = models.DateTimeField(null=True, default=None)
     created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='warrant_files')
+
+
+class FileUpload(models.Model):
+    file = models.FileField()
+

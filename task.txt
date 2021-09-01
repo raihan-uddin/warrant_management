@@ -9,3 +9,24 @@
     #Warrant Settlement: Fahim
 2. Complete Model Design  - Done on 25/08/2021
 3. Layout Mastering  - Done on 25/08/2021
+
+
+
+2021/09/01
+
+-Bulk Save --2021/09/01
+-File Upload --2021/09/01
+-Datatable Filter
+-Data save using POPUP
+-Reporting System
+-MultiStep Form
+
+-Logging
+-Middleware
+-Hidden Form
+-Dynamic Class Loading
+-Custom context processor
+
+
+--Ajax functionality add
+-Export
