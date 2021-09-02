@@ -145,4 +145,14 @@ class PoliceUnitCreateTemplate(TemplateView):
                          'form': form_police_unit,
                          'errors': form_police_unit.errors})
 
+
 # district views end
+
+
+def load_cities(request):
+    district_id = request.GET.get('district')
+    if int(district_id.strip() or 0) > 0:
+        districts = Thana.objects.filter(district_id=district_id).order_by('name')
+    else:
+        districts = None
+    return render(request, 'thana/include/thana_dropdown_list_options.html', {'districts': districts})

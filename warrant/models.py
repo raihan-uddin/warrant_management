@@ -6,7 +6,7 @@ from user.models import CustomUser
 
 
 class Warrant(models.Model):
-    entry_date = models.DateTimeField()
+    entry_date = models.DateField()
     issue_date = models.DateField()
     WARRANT_TYPE_CHOICE = (
         (1, 'GR'),
@@ -59,8 +59,8 @@ class WarrantFile(models.Model):
     warrant = models.ForeignKey(Warrant, on_delete=models.CASCADE, related_name='warrant_files')
     file_name = models.CharField(max_length=255)
     file_type = models.CharField(max_length=100)
-    attachment = models.FileField()
+    attachment = models.FileField(upload_to="warrant/files/%Y/%m/%d")
     created_time = models.DateTimeField(null=True, default=None)
-    created_by = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='warrant_files')
+    created_by = models.ForeignKey(CustomUser, null=True, default=None, on_delete=models.CASCADE, related_name='warrant_files')
 
 

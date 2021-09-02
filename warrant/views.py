@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, UpdateView
 
-from warrant.forms import WarrantCreateForm
-from warrant.models import Warrant
+from warrant.forms import WarrantCreateForm, WarrantFileModelForm
+from warrant.models import Warrant, WarrantFile
 
 
 # Warrant views start
@@ -22,22 +22,30 @@ class WarrantCreateTemplate(TemplateView):
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
         data['form'] = WarrantCreateForm(self.request.POST or None)  # instance= None
+        data['warrant_file_form'] = WarrantFileModelForm(self.request.POST or None)
         return data
 
     def post(self, request, *args, **kwargs):
         form_warrant = WarrantCreateForm(data=request.POST, files=request.FILES)
+        form_warrant_files = WarrantFileModelForm(data=request.POST, files=request.FILES)
+        files = request.FILES.getlist('attachment')
 
-        print(form_warrant.data)
+        # print(form_warrant.data)
         if form_warrant.is_valid():
-            Warrant.objects.create(**form_warrant.cleaned_data)
+            warrant = Warrant.objects.create(**form_warrant.cleaned_data)
+            if form_warrant_files.is_valid():
+                for f in files:
+                    file_instance = WarrantFile(attachment=f, warrant=warrant)
+                    file_instance.save()
+                    # WarrantFile.objects.create(warrant=warrant, **form_warrant_files.cleaned_data)
             return self.render_to_response(
                 context={'status': 'success', 'status_code': 200, 'message': 'Warrant created successfully!',
-                         'form': WarrantCreateForm(), 'errors': None})
+                         'form': WarrantCreateForm(), 'warrant_file_form': WarrantFileModelForm(), 'errors': None})
         else:
             print("NOT SAVED")
             return self.render_to_response(
                 context={'status': 'error', 'status_code': 500, 'message': 'Please try again!', 'form': form_warrant,
-                         'errors': form_warrant.errors})
+                         'warrant_file_form': form_warrant_files, 'errors': form_warrant.errors})
 
 
 class WarrantUpdateTemplate(UpdateView):

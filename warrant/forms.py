@@ -1,5 +1,8 @@
 from django import forms
-from warrant.models import Warrant
+from django.forms import ClearableFileInput
+
+from geo_spatial.models import Thana
+from warrant.models import Warrant, WarrantFile
 
 
 class WarrantCreateForm(forms.ModelForm):
@@ -18,8 +21,33 @@ class WarrantCreateForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        self.fields['thana'].queryset = Thana.objects.none()
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
             })
 
+        if 'district' in self.data:
+            try:
+                district_id = int(self.data.get('district'))
+                self.fields['thana'].queryset = Thana.objects.filter(district_id=district_id).order_by('name')
+            except(ValueError, TypeError):
+                pass  # invalid input from the client;
+        elif self.instance.pk:
+            self.fields['thana'].queryset = self.instance.thana_set.order_by('name')
+
+
+class WarrantFileModelForm(forms.ModelForm):
+    class Meta:
+        model = WarrantFile
+        fields = ['attachment']
+        widgets = {
+            'attachment': ClearableFileInput(attrs={'multiple': True}),
+        }  # widget is important to upload multiple files
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in iter(self.fields):
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control'
+            })

@@ -26,4 +26,7 @@ urlpatterns = [
     path('union/delete/<int:id>/', views.union_delete, name='union_delete'),
     path('union/list/', views.union_list, name='union_list'),
     # union urls end
+
+
+    path('ajax/load-thanas/', views.load_cities, name='ajax_load_thana')
 ]
