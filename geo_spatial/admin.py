@@ -24,6 +24,22 @@ class DistrictAdvanceFilter(admin.ModelAdmin):
 
 
 admin.site.register(District, DistrictAdvanceFilter)
-admin.site.register(Thana)
+
+
+class ThanaAdvanceFilter(admin.ModelAdmin):
+    search_fields = [
+        "district__name",
+        "name",
+        "name_bn",
+        "status",
+        "code",
+    ]
+    list_display = ('district', 'name', 'name_bn', 'code', 'status')
+    # list_display_links = ('name',)
+    list_filter = ('district', 'status',)
+    list_per_page = 10
+
+
+admin.site.register(Thana, ThanaAdvanceFilter)
 admin.site.register(Union)
 admin.site.register(PoliceUnit)
