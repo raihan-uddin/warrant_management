@@ -156,3 +156,12 @@ def load_cities(request):
     else:
         districts = None
     return render(request, 'thana/include/thana_dropdown_list_options.html', {'districts': districts})
+
+
+def load_union(request):
+    thana_id = request.GET.get('thana')
+    if int(thana_id.strip() or 0) > 0:
+        unions = Union.objects.filter(thana_id=thana_id).order_by('name')
+    else:
+        unions = None
+    return render(request, 'union/include/union_dropdown_list_options.html', {'unions': unions})

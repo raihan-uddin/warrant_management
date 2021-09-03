@@ -28,5 +28,6 @@ urlpatterns = [
     # union urls end
 
 
-    path('ajax/load-thanas/', views.load_cities, name='ajax_load_thana')
+    path('ajax/load-thanas/', views.load_cities, name='ajax_load_thana'),
+    path('ajax/load-union/', views.load_union, name='ajax_load_union')
 ]

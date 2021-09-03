@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import ClearableFileInput
 
-from geo_spatial.models import Thana
+from geo_spatial.models import Thana, Union
 from warrant.models import Warrant, WarrantFile
 
 
@@ -22,6 +22,7 @@ class WarrantCreateForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['thana'].queryset = Thana.objects.none()
+        self.fields['union'].queryset = Union.objects.none()
         for field in iter(self.fields):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
@@ -35,6 +36,15 @@ class WarrantCreateForm(forms.ModelForm):
                 pass  # invalid input from the client;
         elif self.instance.pk:
             self.fields['thana'].queryset = self.instance.thana_set.order_by('name')
+
+        if 'thana' in self.data:
+            try:
+                thana_id = int(self.data.get('thana'))
+                self.fields['union'].queryset = Union.objects.filter(thana_id=thana_id).order_by('name')
+            except(ValueError, TypeError):
+                pass  # invalid input from the client;
+        elif self.instance.pk:
+            self.fields['union'].queryset = self.instance.union_set.order_by('name')
 
 
 class WarrantFileModelForm(forms.ModelForm):
