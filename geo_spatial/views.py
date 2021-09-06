@@ -4,10 +4,8 @@ from geo_spatial.models import Union, District, Thana, PoliceUnit
 from geo_spatial.forms import UnionForm, DistrictCreateForm, ThanaCreateForm, PoliceUnitCreateForm
 from django.shortcuts import redirect, render
 from django.views.generic.base import TemplateView
-from .filters import District
+from .filters import District, DistrictFilter
 
-
-# District views start
 
 class DistrictListTemplate(ListView):
     model = District
@@ -17,12 +15,17 @@ class DistrictListTemplate(ListView):
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
+        queryset = self.get_queryset()
+        filter = DistrictFilter(self.request.GET, queryset)
+        data['filters'] = filter
         # data['districts'] = District.objects.all()
         return data
 
-    # def get_queryset(self):
-    #     district = District.objects.order_by('name').all()
-    #     return district
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        filter = DistrictFilter(self.request.GET, queryset)
+        return filter.qs
+
 
 class DistrictCreateTemplate(TemplateView):
     template_name = 'district/create.html'

@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'warrant',
     'crispy_forms',
     'django_filters',
+    'widget_tweaks',
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
