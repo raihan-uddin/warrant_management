@@ -4,6 +4,7 @@ from geo_spatial.models import Union, District, Thana, PoliceUnit
 from geo_spatial.forms import UnionForm, DistrictCreateForm, ThanaCreateForm, PoliceUnitCreateForm
 from django.shortcuts import redirect, render
 from django.views.generic.base import TemplateView
+from .filters import District
 
 
 # District views start
