@@ -20,9 +20,9 @@ class DistrictListTemplate(ListView):
         # data['districts'] = District.objects.all()
         return data
 
-    def get_queryset(self):
-        district = District.objects.order_by('name').all()
-        return district
+    # def get_queryset(self):
+    #     district = District.objects.order_by('name').all()
+    #     return district
 
 class DistrictCreateTemplate(TemplateView):
     template_name = 'district/create.html'
