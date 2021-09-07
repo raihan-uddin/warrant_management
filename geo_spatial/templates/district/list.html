@@ -16,6 +16,7 @@
                 District</a>
             <br>
             <div class="row">
+                <div class="col-sm-12">
                 <form method="get" autocomplete='off'>
                     <div class="row">
                         {% for field in filters.form %}
@@ -27,12 +28,13 @@
                             </div>
                         {% endfor %}
                         <div class="col-md-2">
-                            <button type="submit" class="btn btn-success btn-md"><i class="fas fa-search"></i>
+                            <button type="submit" class="btn btn-success btn-md" style="margin-top: 24px;"><i class="fas fa-search"></i>
                                 Search
                             </button>
                         </div>
                     </div>
                 </form>
+                <br/>
                 <table class="table table-hover" border="1">
                     <thead class="border-bottom font-wight-bold">
                     <tr>
@@ -70,6 +72,7 @@
                     {% endfor %}
                     </tbody>
                 </table>
+                </div>
             </div>
     </fieldset>
     {% include 'include/pagination.html' %}

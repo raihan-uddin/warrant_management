@@ -30,3 +30,4 @@ xlrd==2.0.1
 xlwt==1.3.0
 Ipython
 jedi==0.17.0
+django-widget-tweaks==1.4.8
