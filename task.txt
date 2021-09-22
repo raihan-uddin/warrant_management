@@ -18,14 +18,16 @@
 -File Upload --2021/09/01
 -Datatable Filter
 -Data save using POPUP
--Reporting System
 -MultiStep Form
-
--Logging
 -Middleware
--Hidden Form
 -Dynamic Class Loading
 -Custom context processor
+
+
+-Logging
+-Login & authentication
+-Hidden Form
+-Reporting System
 
 
 --Ajax functionality add
