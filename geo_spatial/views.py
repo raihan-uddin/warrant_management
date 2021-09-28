@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import ListView
 
 from geo_spatial.models import Union, District, Thana, PoliceUnit
@@ -6,12 +7,17 @@ from django.shortcuts import redirect, render
 from django.views.generic.base import TemplateView
 from .filters import District, DistrictFilter
 
+import logging
+# Get an instance of a logger
+# logger = logging.getLogger(__name__)
+
 
 class DistrictListTemplate(ListView):
     model = District
     template_name = 'district/list.html'
     context_object_name = 'districts'
     paginate_by = 5
+
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -22,6 +28,7 @@ class DistrictListTemplate(ListView):
         return data
 
     def get_queryset(self):
+        logging.error('Something went wrong!')
         queryset = super().get_queryset()
         filter = DistrictFilter(self.request.GET, queryset)
         return filter.qs
