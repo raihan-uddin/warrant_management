@@ -15,6 +15,7 @@ import logging
 # Get an instance of a logger
 # logger = logging.getLogger(__name__)
 
+
 @method_decorator(login_required, name='dispatch', )
 class DistrictListTemplate(ListView):
     model = District
@@ -35,6 +36,7 @@ class DistrictListTemplate(ListView):
         queryset = super().get_queryset()
         filter = DistrictFilter(self.request.GET, queryset)
         return filter.qs
+
 
 @method_decorator(login_required, name='dispatch', )
 class DistrictCreateTemplate(TemplateView):
@@ -73,6 +75,7 @@ class ThanaListTemplate(TemplateView):
         data['thanas'] = Thana.objects.all()
         return data
 
+
 @method_decorator(login_required, name='dispatch', )
 class ThanaCreateTemplate(TemplateView):
     template_name = 'thana/create.html'
@@ -105,6 +108,7 @@ def union_list(request):
     data = {'union_list': Union.objects.all()}
     return render(request, "union/list.html", data)
 
+
 @method_decorator(login_required, name='dispatch', )
 def union_form(request, id=0):
     if request.method == 'GET':
@@ -125,6 +129,7 @@ def union_form(request, id=0):
             form.save()
         return redirect('/config/union/list')
 
+
 @method_decorator(login_required, name='dispatch', )
 def union_delete(request, id):
     union = Union.objects.get(pk=id)
@@ -142,6 +147,7 @@ class PoliceUnitListTemplate(TemplateView):
         data = super().get_context_data(**kwargs)
         data['police_units'] = PoliceUnit.objects.all()
         return data
+
 
 @method_decorator(login_required, name='dispatch', )
 class PoliceUnitCreateTemplate(TemplateView):

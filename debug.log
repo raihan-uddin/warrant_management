@@ -255,3 +255,405 @@ INFO 2021-09-28 21:49:58,032 basehttp 23776 15832 "POST /login/?next=/config/dis
 INFO 2021-09-28 21:49:58,254 basehttp 23776 15832 "GET /config/district/list/ HTTP/1.1" 200 18082
 INFO 2021-09-28 21:51:01,587 autoreload 23776 20500 G:\PYTHON\DJANGO\warrant_management\geo_spatial\views.py changed, reloading.
 INFO 2021-09-28 21:51:04,459 autoreload 3708 18596 Watching for file changes with StatReloader
+INFO 2021-09-28 21:52:10,727 basehttp 3708 10224 "GET /login/ HTTP/1.1" 200 1007
+INFO 2021-09-28 21:52:10,812 basehttp 3708 10224 "GET /static/css/login.css HTTP/1.1" 304 0
+INFO 2021-09-28 21:53:36,268 basehttp 3708 9016 "GET /login/ HTTP/1.1" 200 1184
+WARNING 2021-09-28 21:53:36,575 log 3708 9016 Not Found: /login/img_avatar2.png
+WARNING 2021-09-28 21:53:36,577 basehttp 3708 9016 "GET /login/img_avatar2.png HTTP/1.1" 404 3196
+INFO 2021-09-28 21:53:55,428 basehttp 3708 12912 "GET /login/ HTTP/1.1" 200 1166
+WARNING 2021-09-28 21:53:55,613 log 3708 18460 Not Found: /login/img_avatar2.png
+WARNING 2021-09-28 21:53:55,616 basehttp 3708 18460 "GET /login/img_avatar2.png HTTP/1.1" 404 3196
+INFO 2021-09-28 21:55:27,695 basehttp 3708 21636 "GET /login/ HTTP/1.1" 200 1178
+INFO 2021-09-28 21:55:27,860 basehttp 3708 21636 "GET /static/css/login.css HTTP/1.1" 304 0
+INFO 2021-09-28 21:55:29,069 basehttp 3708 21120 "GET /static/img/img_avatar2.png HTTP/1.1" 200 8314
+INFO 2021-09-28 21:59:20,263 basehttp 3708 25292 "GET /login/ HTTP/1.1" 200 1637
+INFO 2021-09-28 21:59:20,411 basehttp 3708 25292 "GET /static/css/login.css HTTP/1.1" 200 401
+INFO 2021-09-28 22:00:12,018 basehttp 3708 21132 "GET /login/ HTTP/1.1" 200 1685
+INFO 2021-09-28 22:00:12,189 basehttp 3708 21132 "GET /static/css/login.css HTTP/1.1" 304 0
+INFO 2021-09-28 22:01:46,706 basehttp 3708 25120 "GET /login/ HTTP/1.1" 200 2405
+INFO 2021-09-28 22:01:46,803 basehttp 3708 25120 "GET /static/css/login.css HTTP/1.1" 304 0
+INFO 2021-09-28 22:04:38,536 basehttp 3708 23860 "GET /login/ HTTP/1.1" 200 2405
+INFO 2021-09-28 22:04:38,643 basehttp 3708 23860 "GET /static/css/login.css HTTP/1.1" 304 0
+INFO 2021-09-28 22:05:38,432 basehttp 3708 19216 "GET /login/ HTTP/1.1" 200 3411
+INFO 2021-09-28 22:05:38,543 basehttp 3708 19216 "GET /static/css/login.css HTTP/1.1" 304 0
+INFO 2021-09-28 22:05:57,081 basehttp 3708 12112 "GET /login/ HTTP/1.1" 200 2882
+INFO 2021-09-28 22:06:01,677 basehttp 3708 19760 "POST /login/ HTTP/1.1" 302 0
+INFO 2021-09-28 22:06:01,945 basehttp 3708 19760 "GET /dashboard/ HTTP/1.1" 200 28406
+INFO 2021-09-28 22:06:09,005 basehttp 3708 20244 "GET /logout/ HTTP/1.1" 302 0
+INFO 2021-09-28 22:06:09,108 basehttp 3708 20244 "GET /login/ HTTP/1.1" 200 2882
+INFO 2021-09-28 22:06:17,521 basehttp 3708 20452 "POST /login/ HTTP/1.1" 200 2899
+INFO 2021-09-28 22:06:47,211 basehttp 3708 14044 "GET /static/css/login.css HTTP/1.1" 304 0
+INFO 2021-09-28 22:07:39,129 basehttp 3708 6200 "POST /login/ HTTP/1.1" 302 0
+INFO 2021-09-28 22:07:39,265 basehttp 3708 6200 "GET /dashboard/ HTTP/1.1" 200 28406
+INFO 2021-09-28 22:07:46,317 basehttp 3708 9344 "GET /config/district/list/ HTTP/1.1" 200 18082
+INFO 2021-09-28 22:07:49,678 basehttp 3708 9344 "GET /config/district/list/?page=2 HTTP/1.1" 200 17022
+INFO 2021-09-28 22:07:54,104 basehttp 3708 9344 "GET /config/district/list/?page=1 HTTP/1.1" 200 18082
+ERROR 2021-09-28 22:09:24,380 log 3708 17668 Internal Server Error: /config/district/list/
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'str' object has no attribute 'start_index'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'start_index'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 692, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 848, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [start_index] in ''
+ERROR 2021-09-28 22:09:24,387 basehttp 3708 17668 "GET /config/district/list/?page=1 HTTP/1.1" 500 202062
+ERROR 2021-09-28 22:10:09,525 log 3708 22928 Internal Server Error: /config/district/list/
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'str' object has no attribute '1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+IndexError: string index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 692, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 848, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [1] in ''
+ERROR 2021-09-28 22:10:09,531 basehttp 3708 22928 "GET /config/district/list/?page=1 HTTP/1.1" 500 201786
+ERROR 2021-09-28 22:10:12,130 log 3708 22928 Internal Server Error: /config/district/list/
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+TypeError: string indices must be integers
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'str' object has no attribute '1'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+IndexError: string index out of range
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 692, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 848, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [1] in ''
+ERROR 2021-09-28 22:10:12,139 basehttp 3708 22928 "GET /config/district/list/?page=1 HTTP/1.1" 500 201786
+INFO 2021-09-28 22:11:15,057 autoreload 3708 18596 G:\PYTHON\DJANGO\warrant_management\geo_spatial\views.py changed, reloading.
+INFO 2021-09-28 22:11:20,357 autoreload 7580 2340 Watching for file changes with StatReloader
+INFO 2021-09-28 22:12:16,723 autoreload 7580 2340 G:\PYTHON\DJANGO\warrant_management\geo_spatial\views.py changed, reloading.
+INFO 2021-09-28 22:12:18,771 autoreload 19416 21752 Watching for file changes with StatReloader
+INFO 2021-09-28 22:12:44,377 autoreload 19416 21752 G:\PYTHON\DJANGO\warrant_management\geo_spatial\views.py changed, reloading.
+INFO 2021-09-28 22:12:46,544 autoreload 22988 22328 Watching for file changes with StatReloader
+INFO 2021-09-28 22:12:56,014 autoreload 22988 22328 G:\PYTHON\DJANGO\warrant_management\geo_spatial\views.py changed, reloading.
+INFO 2021-09-28 22:12:59,512 autoreload 21108 12120 Watching for file changes with StatReloader
+INFO 2021-09-28 22:13:42,486 basehttp 21108 25184 "GET /config/district/list/?page=1 HTTP/1.1" 200 18397
+INFO 2021-09-28 22:13:45,071 basehttp 21108 25184 "GET /config/district/list/?page=2 HTTP/1.1" 200 17274
+INFO 2021-09-28 22:13:46,668 basehttp 21108 22108 "GET /config/district/list/?page=1 HTTP/1.1" 200 18397
+ERROR 2021-09-28 22:14:23,168 log 21108 25424 Internal Server Error: /config/district/list/
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 829, in _resolve_lookup
+    current = current[bit]
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\db\models\query.py", line 290, in __getitem__
+    raise TypeError(
+TypeError: QuerySet indices must be integers or slices, not str.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 837, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'QuerySet' object has no attribute 'start_index'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 843, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'start_index'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 83, in rendered_content
+    return template.render(context, self._request)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\backends\django.py", line 61, in render
+    return self.template.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 170, in render
+    return self._render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 150, in render
+    return compiled_parent._render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 162, in _render
+    return self.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 62, in render
+    result = block.nodelist.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 938, in render
+    bit = node.render_annotated(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\defaulttags.py", line 211, in render
+    nodelist.append(node.render_annotated(context))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 905, in render_annotated
+    return self.render(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 988, in render
+    output = self.filter_expression.resolve(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 692, in resolve
+    arg_vals.append(arg.resolve(context))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 796, in resolve
+    value = self._resolve_lookup(context)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 848, in _resolve_lookup
+    raise VariableDoesNotExist("Failed lookup for key "
+django.template.base.VariableDoesNotExist: Failed lookup for key [start_index] in <QuerySet [<District: DHAKA>, <District: Sirajgonj>, <District: CTG>, <District: KHULNA>, <District: Save second>]>
+ERROR 2021-09-28 22:14:23,176 basehttp 21108 25424 "GET /config/district/list/?page=1 HTTP/1.1" 500 206676
+INFO 2021-09-28 22:14:47,424 basehttp 21108 23960 "GET /config/district/list/?page=1 HTTP/1.1" 200 18407
+INFO 2021-09-28 22:14:49,820 basehttp 21108 23960 "GET /config/district/list/?page=2 HTTP/1.1" 200 17282
+INFO 2021-09-28 22:14:51,804 basehttp 21108 23960 "GET /config/district/list/?page=1 HTTP/1.1" 200 18407
+INFO 2021-09-28 22:15:50,367 basehttp 21108 1352 "GET /config/district/list/?page=1 HTTP/1.1" 200 18587
+INFO 2021-09-28 22:17:03,069 basehttp 21108 22940 "GET /config/district/list/?page=1 HTTP/1.1" 200 18407
+INFO 2021-09-28 22:17:06,337 basehttp 21108 22940 "GET /config/district/list/?page=1 HTTP/1.1" 200 18407
+INFO 2021-09-28 22:17:52,787 autoreload 21108 12120 G:\PYTHON\DJANGO\warrant_management\geo_spatial\views.py changed, reloading.
+INFO 2021-09-28 22:17:55,234 autoreload 24912 24968 Watching for file changes with StatReloader
+INFO 2021-09-28 22:17:57,442 autoreload 24912 24968 G:\PYTHON\DJANGO\warrant_management\geo_spatial\views.py changed, reloading.
+INFO 2021-09-28 22:17:59,223 autoreload 24432 22880 Watching for file changes with StatReloader
+ERROR 2021-09-28 22:18:40,957 log 24432 25036 Internal Server Error: /config/district/list/
+Traceback (most recent call last):
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\exception.py", line 47, in inner
+    response = get_response(request)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\core\handlers\base.py", line 204, in _get_response
+    response = response.render()
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 105, in render
+    self.content = self.rendered_content
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 81, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\response.py", line 63, in resolve_template
+    return select_template(template, using=self.using)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\backends\django.py", line 34, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\engine.py", line 143, in get_template
+    template, origin = self.find_template(template_name)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\engine.py", line 125, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loaders\base.py", line 29, in get_template
+    return Template(
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 155, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 193, in compile_nodelist
+    return parser.parse()
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 278, in do_extends
+    nodelist = parser.parse()
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\loader_tags.py", line 216, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\defaulttags.py", line 814, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 478, in parse
+    raise self.error(token, e)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 476, in parse
+    compiled_result = compile_func(self, token)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\defaulttags.py", line 965, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 449, in parse
+    raise self.error(token, e)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 447, in parse
+    filter_expression = self.compile_filter(token.contents)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 563, in compile_filter
+    return FilterExpression(token, self)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 657, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "G:\PYTHON\DJANGO\warrant_management\venv\lib\site-packages\django\template\base.py", line 569, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+django.template.exceptions.TemplateSyntaxError: Invalid filter: 'adjust_for_pagination'
+ERROR 2021-09-28 22:18:40,971 basehttp 24432 25036 "GET /config/district/list/?page=1 HTTP/1.1" 500 209783
+INFO 2021-09-28 22:19:44,174 autoreload 24432 22880 G:\PYTHON\DJANGO\warrant_management\geo_spatial\views.py changed, reloading.
+INFO 2021-09-28 22:19:46,471 autoreload 20968 24916 Watching for file changes with StatReloader
+INFO 2021-09-28 22:19:50,069 autoreload 20968 24916 G:\PYTHON\DJANGO\warrant_management\geo_spatial\views.py changed, reloading.
+INFO 2021-09-28 22:19:52,249 autoreload 7164 22292 Watching for file changes with StatReloader
+INFO 2021-09-28 22:20:03,349 basehttp 7164 12044 "GET /config/district/list/?page=1 HTTP/1.1" 200 20047
+INFO 2021-09-28 22:20:05,598 basehttp 7164 8604 "GET /config/district/list/?page=2 HTTP/1.1" 200 18646
+INFO 2021-09-28 22:20:07,775 basehttp 7164 8604 "GET /config/district/list/?page=1 HTTP/1.1" 200 20047
+INFO 2021-09-28 22:20:10,404 basehttp 7164 25360 "GET /config/district/list/?page=2 HTTP/1.1" 200 18646
