@@ -1,4 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.utils.decorators import method_decorator
 from django.views.generic import ListView
 
 from geo_spatial.models import Union, District, Thana, PoliceUnit
@@ -8,16 +10,17 @@ from django.views.generic.base import TemplateView
 from .filters import District, DistrictFilter
 
 import logging
+
+
 # Get an instance of a logger
 # logger = logging.getLogger(__name__)
 
-
+@method_decorator(login_required, name='dispatch', )
 class DistrictListTemplate(ListView):
     model = District
     template_name = 'district/list.html'
     context_object_name = 'districts'
     paginate_by = 5
-
 
     def get_context_data(self, **kwargs):
         data = super().get_context_data(**kwargs)
@@ -33,7 +36,7 @@ class DistrictListTemplate(ListView):
         filter = DistrictFilter(self.request.GET, queryset)
         return filter.qs
 
-
+@method_decorator(login_required, name='dispatch', )
 class DistrictCreateTemplate(TemplateView):
     template_name = 'district/create.html'
 
@@ -61,7 +64,7 @@ class DistrictCreateTemplate(TemplateView):
 
 
 # Thana views start
-
+@method_decorator(login_required, name='dispatch', )
 class ThanaListTemplate(TemplateView):
     template_name = 'thana/list.html'
 
@@ -70,7 +73,7 @@ class ThanaListTemplate(TemplateView):
         data['thanas'] = Thana.objects.all()
         return data
 
-
+@method_decorator(login_required, name='dispatch', )
 class ThanaCreateTemplate(TemplateView):
     template_name = 'thana/create.html'
 
@@ -97,12 +100,12 @@ class ThanaCreateTemplate(TemplateView):
 # district views end
 
 # union views start
-
+@method_decorator(login_required, name='dispatch', )
 def union_list(request):
     data = {'union_list': Union.objects.all()}
     return render(request, "union/list.html", data)
 
-
+@method_decorator(login_required, name='dispatch', )
 def union_form(request, id=0):
     if request.method == 'GET':
         if id == 0:
@@ -122,7 +125,7 @@ def union_form(request, id=0):
             form.save()
         return redirect('/config/union/list')
 
-
+@method_decorator(login_required, name='dispatch', )
 def union_delete(request, id):
     union = Union.objects.get(pk=id)
     union.delete()
@@ -131,7 +134,7 @@ def union_delete(request, id):
 
 # union views end
 
-
+@method_decorator(login_required, name='dispatch', )
 class PoliceUnitListTemplate(TemplateView):
     template_name = 'police-unit/list.html'
 
@@ -140,7 +143,7 @@ class PoliceUnitListTemplate(TemplateView):
         data['police_units'] = PoliceUnit.objects.all()
         return data
 
-
+@method_decorator(login_required, name='dispatch', )
 class PoliceUnitCreateTemplate(TemplateView):
     template_name = 'police-unit/create.html'
 

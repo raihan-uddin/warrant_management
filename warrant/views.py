@@ -1,4 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
+from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView, UpdateView
 
 from warrant.forms import WarrantCreateForm, WarrantFileModelForm
@@ -6,7 +8,7 @@ from warrant.models import Warrant, WarrantFile
 
 
 # Warrant views start
-
+@method_decorator(login_required, name='dispatch', )
 class WarrantListTemplate(TemplateView):
     template_name = 'warrant/list.html'
 
@@ -16,6 +18,7 @@ class WarrantListTemplate(TemplateView):
         return data
 
 
+@method_decorator(login_required, name='dispatch', )
 class WarrantCreateTemplate(TemplateView):
     template_name = 'warrant/create.html'
 
@@ -48,6 +51,7 @@ class WarrantCreateTemplate(TemplateView):
                          'warrant_file_form': form_warrant_files, 'errors': form_warrant.errors})
 
 
+@method_decorator(login_required, name='dispatch', )
 class WarrantUpdateTemplate(UpdateView):
     model = Warrant
     fields = ('entry_date', 'issue_date', 'warrant_type', 'court_name', 'warrant_person_name_age',
@@ -59,6 +63,7 @@ class WarrantUpdateTemplate(UpdateView):
     success_url = '/warrant/list'
 
 
+@method_decorator(login_required, name='dispatch', )
 class WarrantFileUploadTemplate(TemplateView):
     template_name = 'warrant/file_upload.html'
 
