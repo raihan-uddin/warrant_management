@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <h1 class="mt-4">Union</h1>
+    <div class="card mb-4">
+        <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            Union List
+        </div>
+        <div class="card-body">
+            <a href="{% url 'union_create' %}" class="btn btn-outline-success float-right"
+               style="float: right;margin-left: 30px;"><i class="fas fa-plus"></i> Add
+                Union</a>
+            <table id="datatablesSimple">
+                <thead>
+                <tr>
+                    <th>Thana</th>
+                    <th>Union Name</th>
+                    <th>Union Name Bangla</th>
+                    <th>Union Code</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Thana</th>
+                    <th>Union Name</th>
+                    <th>Union Name Bangla</th>
+                    <th>Union Code</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+                </tfoot>
+                <tbody>
+                {% for union in union_list %}
+                    <tr>
+                        <td>{{ union.thana }}</td>
+                        <td>{{ union.name }}</td>
+                        <td>{{ union.name_bn }}</td>
+                        <td>{{ union.code }}</td>
+                        <td>
+                            {% if union.status == True %}
+                                Active
+                            {% else %}
+                                Inactive
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a href="{% url 'union_update' union.id %}" class="btn text-secondary px-0">
+                                <i class="far fa-edit fa-lg"></i>
+                            </a>
+                            <form action="{% url 'union_delete' union.id %}" method="post" class="d-inline">
+                                {% csrf_token %}
+                                <button type="submit" class="btn">
+                                    <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <style>
+        td {
+            text-align: center;
+        }
+
+        .dataTable-table > thead > tr > th {
+            text-align: center !important;
+        }
+    </style>
+{% endblock %}
+{% block javascript %}
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script src="{% static 'js/datatables-simple-demo.js' %}"></script>
+{% endblock %}

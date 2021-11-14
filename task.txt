@@ -1,0 +1,34 @@
+1. Layout Design
+    #Menu Design: Raihan - Done on 25/08/2021
+    #District Create: Abdul Quader
+    #Thana Create: Fahim
+    #Union Create: Arafat - Done on 26/08/2021
+    #Police Unit: Kamrul
+    #Warrant: Raihan
+    #Step Taken By Officer: Quader
+    #Warrant Settlement: Fahim
+2. Complete Model Design  - Done on 25/08/2021
+3. Layout Mastering  - Done on 25/08/2021
+
+
+
+2021/09/01
+
+-Bulk Save --2021/09/01
+-File Upload --2021/09/01
+-Datatable Filter
+-Data save using POPUP
+-MultiStep Form
+-Middleware
+-Dynamic Class Loading
+-Custom context processor
+
+
+-Logging
+-Login & authentication
+-Hidden Form
+-Reporting System
+
+
+--Ajax functionality add
+-Export

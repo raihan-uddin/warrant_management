@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% load static %}
+{% block content %}
+
+    <ol class="breadcrumb mb-4">
+        <h3 class="mt-2">District List</h3>
+    </ol>
+    <hr>
+    <fieldset>
+
+        <div class="col-md-12">
+            <a href="{% url 'district_create' %}" class="btn btn-outline-success float-right"><i
+                    class="fas fa-plus"></i>
+                Add
+                District</a>
+            <br>
+            <div class="row">
+                <div class="col-sm-12">
+                    <form method="get" autocomplete='off'>
+                        <div class="row">
+                            {% for field in filters.form %}
+                                <div class="col-md-2">
+                                    <fieldset class="control-group">
+                                        {{ field.label_tag }}
+                                        {% render_field field class='form-control' %}
+                                    </fieldset>
+                                </div>
+                            {% endfor %}
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-success btn-md" style="margin-top: 24px;"><i
+                                        class="fas fa-search"></i>
+                                    Search
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                    <br/>
+                    <table class="table table-hover" border="1">
+                        <thead class="border-bottom font-wight-bold">
+                        <tr>
+                            <th>SL</th>
+                            <th>Name</th>
+                            <th>Name Bangla</th>
+                            <th>Code</th>
+                            <th>Status</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for district in districts %}
+                            <tr>
+                                <td>
+                                    {#                                {{ forloop.counter|add:paginator.page.1 }}#}
+                                    {#                                {{ forloop.counter }}#}
+                                    {#                                 {{ forlopp.counter0|add:districts.start_index }}#}
+                                    {#                                {{ district.start_index|add:forloop.counter0 }}#}
+                                    {#                                {{ districts.start_index|add:forloop.counter0 }}#}
+{#                                    {{ forloop.counter|add:paginator.page.start_index }}#}
+                                    {{ forloop.counter0|add:page_obj.start_index }}. {{ object }}
+                                </td>
+                                <td>{{ district.name }}</td>
+                                <td>{{ district.name_bn }}</td>
+                                <td>{{ district.code }}</td>
+                                <td>{{ district.get_status_display }}</td>
+                                <td>
+                                    <a href="#" class="btn text-secondary px-0">
+                                        <i class="far fa-edit fa-lg"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <form action="#" method="post" class="d-inline">
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn">
+                                            <i class="far fa-trash-alt fa-lg text-danger float-right"></i>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </fieldset>
+    {% include 'include/pagination.html' %}
+
+{% endblock %}
